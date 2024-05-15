@@ -19,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={openSans.className}>{children}</body>
+      <body className={openSans.className}>
+        {children}
+      </body>
     </html>
   );
 }

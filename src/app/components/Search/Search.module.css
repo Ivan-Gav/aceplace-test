@@ -1,3 +1,6 @@
+.form {
+  margin: 2rem auto;
+}
 .input {
  outline: none;
  appearance: textfield;
@@ -8,6 +11,7 @@
  border-right: none;
  padding-left: 1rem;
  height: 2rem;
+ vertical-align: top;
 }
 
 .input::-webkit-outer-spin-button,
@@ -32,4 +36,5 @@
   border-left: none;
   background-color: transparent;
   padding-inline: 0.5rem;
+  vertical-align: top;
 }
