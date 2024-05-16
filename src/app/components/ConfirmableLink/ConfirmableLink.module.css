@@ -1,3 +1,12 @@
+.link {
+  cursor: pointer;
+  transition: opacity 0.3s ease-in;
+}
+
+.link:hover {
+  opacity: 0.8;
+}
+
 .btn_group {
   display: flex;
   justify-content: space-around;
@@ -11,10 +20,10 @@
   padding: 0.5rem;
 }
 
-.cancel {
-  background-color: #9DDE8B;
+.confirm {
+  background-color: #9dde8b;
 }
 
-.confirm {
-  background-color: #FEB941;
+.cancel {
+  background-color: #feb941;
 }

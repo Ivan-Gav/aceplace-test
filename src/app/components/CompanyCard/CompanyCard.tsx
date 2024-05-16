@@ -11,46 +11,46 @@ export default function CompanyCard({ company }: { company: CompanyType }) {
       </h2>
 
       {!!company.data.name?.full_with_opf && (
-        <p className={s.p1}>
+        <p className={s.paragraph}>
           Полное наименование:{" "}
           <span className={s.data}>{company.data.name.full_with_opf}</span>
         </p>
       )}
 
       {!!company.data.type && company.data.type === "INDIVIDUAL" ? (
-        <p className={s.p1}>
+        <p className={s.paragraph}>
           Тип организации:{" "}
           <span className={s.data}>индивидуальный предприниматель</span>
         </p>
       ) : (
-        <p className={s.p1}>
+        <p className={s.paragraph}>
           Тип организации: <span className={s.data}>юридическое лицо</span>
         </p>
       )}
 
       {!!company.data.inn && (
-        <p className={s.p1}>
+        <p className={s.paragraph}>
           ИНН: <span className={s.data}>{company.data.inn}</span>
         </p>
       )}
 
       {!!company.data.kpp && (
-        <p className={s.p1}>
+        <p className={s.paragraph}>
           КПП: <span className={s.data}>{company.data.kpp}</span>
         </p>
       )}
 
       {!!company.data.ogrn && (
-        <p className={s.p1}>
+        <p className={s.paragraph}>
           ОГРН: <span className={s.data}>{company.data.ogrn}</span>
         </p>
       )}
 
       {!!company.data.founders && company.data.founders.length && (
         <>
-          <p className={s.p1}>Основатель(ли):</p>
+          <p className={s.paragraph}>Основатель(ли):</p>
           {company.data.founders.map((f) => (
-            <p key={f.hid} className={s.p2}>
+            <p key={f.hid} className={s.paragraph_nested}>
               <span className={s.data}>{f.name}</span>
             </p>
           ))}
@@ -58,8 +58,14 @@ export default function CompanyCard({ company }: { company: CompanyType }) {
       )}
 
       {!!company.data.address?.value && (
-        <div className={s.p1}>
-          Адрес: <ConfirmableLink href={getGeoLink(company.data.address.value)} text={company.data.address.value} description="Искать адрес на сайте Яндекс.Карт?" className={s.data} />
+        <div className={s.paragraph}>
+          Адрес:{" "}
+          <ConfirmableLink
+            href={getGeoLink(company.data.address.value)}
+            text={company.data.address.value}
+            description="Искать адрес на сайте Яндекс.Карт?"
+            className={s.data}
+          />
         </div>
       )}
     </article>

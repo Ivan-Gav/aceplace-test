@@ -8,23 +8,27 @@ export default async function Page({ params }: { params: { query: string } }) {
 
   const isData = !!data.suggestions && !!data.suggestions.length;
 
+  const Results = !isData ? (
+    <h2 className={s.results_title}>
+      Ни одной организации с ИНН {params.query} не найдено.
+    </h2>
+  ) : (
+    <>
+      <h2 className={s.results_title}>
+        Результаты поиска по ИНН {params.query}:
+      </h2>
+      {!!data.suggestions &&
+        data.suggestions.map((comp) => (
+          <CompanyCard company={comp} key={comp.data.hid} />
+        ))}
+    </>
+  );
+
   return (
     <div className={s.box}>
       <Search />
       <hr className={s.divider} />
-      <div className={s.results}>
-        {!isData ? (
-          <h2 className={s.results_title}>Ни одной организации с ИНН {params.query} не найдено.</h2>
-        ) : (
-          <>
-            <h2 className={s.results_title}>Результаты поиска по ИНН {params.query}:</h2>
-            {!!data.suggestions &&
-              data.suggestions.map((comp) => (
-                <CompanyCard company={comp} key={comp.data.hid} />
-              ))}
-          </>
-        )}
-      </div>
+      <div className={s.results}>{Results}</div>
     </div>
   );
 }
