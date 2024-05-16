@@ -1,8 +1,9 @@
 # Тестовое задание на вакансию React разработчик (ООО Эйс Плэйс)
 
 ## Деплой приложения
-[здесь]()
-
+[здесь](https://aceplace-test.vercel.app/)
+## Скриншот
+![alt text](image.png)
 ## Стэк
 - Next.js
 - TypeScript
